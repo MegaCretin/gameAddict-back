@@ -1,5 +1,6 @@
 package fr.projetannuel.gameaddict.services.imp;
 
+import fr.projetannuel.gameaddict.dto.JeuDTO;
 import fr.projetannuel.gameaddict.model.Jeu;
 import fr.projetannuel.gameaddict.repo.JeuRepository;
 import fr.projetannuel.gameaddict.services.services.JeuService;
@@ -20,9 +21,11 @@ public class JeuServiceImp implements JeuService {
     }
 
     @Override
-    public Jeu addJeu(Jeu jeu, List<Long> tags) {
+    public Jeu addJeu(JeuDTO jeuDTO) {
+        Jeu jeu = new Jeu(jeuDTO.getId(), jeuDTO.getName(), jeuDTO.getDescription(), jeuDTO.getDate(), jeuDTO.getPlayer() ,jeuDTO.getGrade());
         Jeu jeuWithNote = addNote(jeu);
-        tagJeuService.addTagJeu(tags, jeu.getId());
+
+        tagJeuService.addTagJeu(jeuDTO.getListTags(), jeu.getId());
         return jeuRepository.save(jeuWithNote);
     }
 

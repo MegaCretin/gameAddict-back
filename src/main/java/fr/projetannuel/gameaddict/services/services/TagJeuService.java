@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface TagJeuService {
     public List<Tag> getAllTagsById(Long id);
-    public void addTagJeu(List<Long> tags, Long id);
+    public void addTagJeu(List<Tag> tags, Long id);
 }

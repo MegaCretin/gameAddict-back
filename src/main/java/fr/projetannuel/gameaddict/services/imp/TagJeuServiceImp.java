@@ -31,9 +31,9 @@ public class TagJeuServiceImp implements TagJeuService {
     }
 
     @Override
-    public void addTagJeu(List<Long> tags, Long id) {
+    public void addTagJeu(List<Tag> tags, Long id) {
         tags.forEach(tag -> {
-            TagJeu tagJeu = new TagJeu(id, tag);
+            TagJeu tagJeu = new TagJeu(id, tag.getId());
             tagJeuRepository.save(tagJeu);
         });
     }
