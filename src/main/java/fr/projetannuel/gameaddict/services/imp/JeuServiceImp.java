@@ -36,7 +36,7 @@ public class JeuServiceImp implements JeuService {
 
     @Override
     public List<Jeu> getAllJeux() {
-        return jeuRepository.findAll();
+        return jeuRepository.getAllJeu();
     }
 
     @Override
